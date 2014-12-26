@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <title>Android学习笔记 | No_stop</title>
+  <title>Tag: test | No_stop</title>
   <meta name="description" content="尽人事，以待天命" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="MobileOptimized" content="320" />
@@ -144,7 +144,7 @@
                 
                 <div id="nav-container">
                     <div class="post-navbar" style="line-height: 63px;display:none">
-                        <li id="navbar-title"><a href="#">Android学习笔记</a></li>
+                        <li id="navbar-title"><a href="#">undefined</a></li>
                         <li id="navbar-toc" style="border-left: none">
                             <a style="padding-right: 15px">
                                 <span id="toc-content" >Introduction</span><i class="fa fa-chevron-down" ></i>
@@ -163,71 +163,47 @@
 
 
 <!-- -->
-<!--<body class="post-template">-->
+<!--<body class="home-template">-->
 <!---->
   
-
 <main class="content" role="main">
-    <article class="post" >
-    <span class="post-meta">
-                  <div class="tag-tile">
-                      
-                      
-                      <a data-pjax href='/tags/Android/' style='color:#D5D5D5'>Android</a>
-                      
-                      
-                  </div>
-                <h1 class="post-title" style="margin: 14px 0;color:#50585D">Android学习笔记</h1>
 
-                    <div class="post-meta">
-                        Post on<span class="fa fa-clock-o"></span>
-                        <time datetime="2014-12-22T15:12:20.000Z"
-                              itemprop="datePublished">Dec 22 2014</time>
-                    </div>
-    </span>
+    
+    <article class="post">
 
-        <section class="post-content">
-            <p><strong>本文只做学习记录，不做教程，所以每一点都只是简单的记录。有疑问或建议可留言讨论</strong></p>
-<h4 id="一、预备知识"><strong>一、预备知识</strong></h4>
-<p>　　Android的四层体系结构啥的大概了解了一下，我们写Android程序，都是基于系统给我们的api进行编程的。而系统给的api，需要安装sdk才能使用（这是我个人理解的），所以，为了编程方便，我们搭建eclipse环境，然后安装adt插件，配置sdk后，用eclipse进行编程即可。</p>
-<h4 id="二、环境搭建"><strong>二、环境搭建</strong></h4>
-<p>　　配置java环境，下载eclipse,adt,sdk。java，eclipse，adt啥的，百度教程费了好多时间，然后是配置sdk，安装了adt之后，他会自动生成一个sdk的目录，把下载的sdk文件复制到该目录下。刚下载的sdk里面只有一些最基本的tools，包含api的包都没有安装，要自己下载安装（从api3到api20，全部装完估计得好几天，手里有一台android4.1的手机，所以我先把android4.0对应的api包装好，然后后面的编程都用这个环境），sdk的下载速度极慢，在系统的hosts文件里添加上一些谷歌的ip会快一点。</p>
-<h4 id="三、第一个Android程序"><strong>三、第一个Android程序</strong></h4>
-<p>　　新建project，选择Android application project，写好name，然后下面要选择程序最低的api，期望的api，最高的api，最低我选了Android4.0，其他没改，一路next。其实这已经是一个完整的Android程序了，也就是我们非常熟悉的hello world程序。把eclipse的devices窗口打开来，连上android手机，在devices窗口能看到手机说明连接成功。右键项目，run as选android application，然后选设备（就是连上的手机，或者可以自己建Android虚拟机）。然后在手机上就可以看到这个程序了，而且这个程序已经被安装到手机上了。</p>
-<h4 id="四、Android程序是怎么启动的"><strong>四、Android程序是怎么启动的</strong></h4>
-<p>　　Android程序，实际上都是java程序。我们的java程序一般都是运行一个class，Android也是这样的，只不过多了一些配置文件。Android程序会先找到src下的MainActivity.java文件，然后执行这个文件。这个class里面，有一个oncreat方法，其实就跟我们以前写的main方法差不多，程序就是从这里进来的。然后程序通过这个oncreat方法里面的setContentView，找到主activity的布局文件，这个布局文件，就是我们看到的Android程序启动后，第一眼看到的样子了。所以我们要通过对这个布局文件的配置，来布置程序的初始界面。这个布局文件，在res/layout目录下，打开它，可以通过eclipse的可视化界面进行布局，也可以通过代码进行布局。</p>
-<h4 id="五、Android程序的基本组成"><strong>五、Android程序的基本组成</strong></h4>
-<p>　　用户看到的Android程序，就是一个界面，然后点击界面上的某一些东西会弹出另一个界面。Android程序就是由这些界面组成，这些界面称为activity，而activity上面会有一些控件，也就是按钮，文本框什么的，这些控件称为view。</p>
-<h4 id="六、Android简单布局文件以及简单view"><strong>六、Android简单布局文件以及简单view</strong></h4>
-<p>　　布局文件里面，首先要写的就是布局方式，现在还只学了线性布局，也就是linearlayout。对于linearlayout，要说明布局方向，水平还是垂直。然后就是在布局文件里面添加一些控件，比如文本框TextView，控件的属性有很多，第一个是id，这个可写可不写，但一般都是要写的，因为在后面的程序运行过程中，我们要获取这个view的对象的话，是要通过id找到的。然后还有就是view的宽和高，布置的位置（这个看布局情况布置），这个看情况，还有背景色background，颜色，内边距，外边距，还有显示的text什么的。这些就是view的最基本的属性了。</p>
-<h4 id="七、Android监听器"><strong>七、Android监听器</strong></h4>
-<p>　　其实这个跟java是一样的，只不过用的是Andriod包里面的监听器而已。基本上分四个步骤：<br>1.获取要监听的控件的对象，这个可以用findViewById方法，这个方法得到的是一个View对象，要向下转型成所监听的空间的对象的类。所有的控件都是从View类继承下来的。<br>2.创建监听器类，实现相应的监听器接口。<br>3.new一个监听器对象。<br>4.在控件上set一下监听器，也就是让刚才的那个监听器去监听这个控件。</p>
-<h4 id="八、Android中的长度，大小单位"><strong>八、Android中的长度，大小单位</strong></h4>
-<p>　　一般长度单位用dp，字体大小用sp </p>
-<hr>
-<p>到这里，如果再有一些java基础的话，应该算是Android入门了吧。接下来的过程，就是学习各种layout，view和监听器等等小东西的用法，以及一些编程技巧了</p>
-<h4 id="九、Android中的多线程"><strong>九、Android中的多线程</strong></h4>
-<p>　　这点与java也是差不多的，写几个注意点。Android中，线程分为两类，一类是Main Thread，另一类是Worker Thread。在Android中，只有创建Activity的线程才能对Activity中的内容进行修改，一般来讲，创建Activity的就是Main Thread。但是ProgressBar也是可以通过Worker Thread进行修改的。</p>
-<h4 id="十、Android中的消息传递机制"><strong>十、Android中的消息传递机制</strong></h4>
-<p>　　第九点中说到，WorkerThread不能直接对UI进行修改，那么WorkerThread处理的结果如何显示到UI上呢？比如，从网络上下载到了一张图片显示在UI上，我们用Main Thread下载的话，就不能跟用户继续交互，所以一般下载都是用后台进程进行操作的。那么后台进程下载的内容如何在UI上显示呢？这里就要用到Android中的消息传递机制了。<br>　　Android中，消息传递是通过Handler—&gt;MessageQueue—&gt;Looper—&gt;Handler完成的。为什么这个过程起点是Handler，终点又是Handler呢？我是这样理解的，Handler是消息包(暂且这么称呼)的生成地，一个Handler可以生成任意多个消息包。Handler在那个进程里面，那么这个消息包在外头溜达一圈之后，又会重新回到这个进程。而这个溜达一圈的过程，其实就是在其他进程获取信息。如果A进程有任务交给B处理，那么A会发一个消息包给B，B接收到消息包后，处理完又把信息附到消息包里面，重新发回给A。那么Looper是干嘛用的呢？很简单，其实Looper是一直在循环着等待接受消息包。为什么要这样循环着等待呢？因为我们不知道这个消息包什么时候会来。</p>
+        <header class="post-header">
+            <div class="tag-tile">
+                
+                
+                <a data-pjax href='/tags/test/'>test</a>
+                
+                
+                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
+            </div>
+            <h1 class="post-title"><a data-pjax href="/2014/12/24/test/">Hello World</a>
+            </h1>
 
+            <div class="post-meta">
+                Post on<span class="fa fa-clock-o"></span>
+                <time datetime="2014-12-24T15:00:38.000Z"
+                      itemprop="datePublished">Dec 24 2014</time>
+            </div>
+        </header>
+        <section class="post-excerpt">
+            <p>
+                
+                123456789101112#include&lt;stdio.h&gt;#define	ha int#define	haha main#define hahaha (#define hahahaha )#define hahahahaha {#define hahahahahaha }#define hahahahahahaha puts#define hahahahahahahaha "Hello World!"ha haha h
+                
+            </p>
+            
         </section>
-        <hr/>
-        <nav class="pagination" style="width:auto" role="pagination">
-            
-            <a data-pjax class="newer-posts" href="/2014/12/24/test/">← Prev Post</a>
-            
-            <a class="share-button" data-original-title title>Share this Post</a>
-            
-        </nav>
-        <br/>
-        <br/>
-        <section id="comment">
-            <div id="comment-box"></div>
-        </section>
-
-
     </article>
+    
+    <nav class="pagination" role="pagination">
+        
+        <span class="page-number">Page  of </span>
+        
+    </nav>
 </main>
 
 
@@ -279,7 +255,7 @@
         var dsq = document.createElement('script');
         dsq.type = 'text/javascript';
         dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
 </script>
